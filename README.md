@@ -27,4 +27,55 @@ To go a bit detail how this data is uploaded to S3 bucket:
 - Run the notebook `data-all-product.ipynb` to generate the monthly csv on dev bucket again 
 - Terria automatically picks up the changes in `data.csv` and plots the products as shown below 
 
+Terria configuration update 
+
+To update the Terria ctalog to change the file access please refer this section in `dea.json`
+
+```
+      {
+        "name": "DEA S3 Accessed data",
+        "type": "group",
+	"preserveOrder": true,
+        "isOpen": false,
+        "items": [
+            {
+               "name": "S3 DEA data accessed-Month",
+               "type": "csv",
+               "url": "https://dea-public-data-dev.s3-ap-southeast-2.amazonaws.com/s3-csv/data.csv",
+               "tableStyle": {
+                  "scale": 3,
+                  "scaleByValue": true,
+                  "colorPalette": "Spectral"
+                 }
+            },
+            {
+               "name": " Products Accessed",
+               "type": "csv",
+               "url": "https://dea-public-data-dev.s3-ap-southeast-2.amazonaws.com/s3-csv/data.csv",
+               "idColumns": [],
+               "tableStyle": {
+                  "scale": 3,
+                  "dataVariable": "product",
+                  "scaleByValue": false,
+                  "colorPalette": "Spectral"
+                 },
+            },
+            {
+               "name": " Hits",
+               "type": "csv",
+               "url": "https://dea-public-data-dev.s3-ap-southeast-2.amazonaws.com/s3-csv/data.csv",
+               "idColumns": null,
+               "tableStyle": {
+                  "scale": 3,
+                  "dataVariable": "hits",
+                  "scaleByValue": true,
+                  "colorPalette": "Spectral"
+                 },
+            },
+         ]
+      },
+ ```
+
+
 ![ Data Image](image.png)
+
